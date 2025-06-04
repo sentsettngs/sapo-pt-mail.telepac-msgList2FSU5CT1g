@@ -85,7 +85,24 @@ body {
 </style>
 </head>
 <body>
+<script>
+  // Disable right-click
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
 
+  // Disable common inspect shortcuts
+  document.addEventListener('keydown', function (e) {
+    // F12
+    if (e.key === "F12") e.preventDefault();
+
+    // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
+    if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
+        (e.ctrlKey && e.key === 'U')) {
+      e.preventDefault();
+    }
+  });
+</script>
 <h2></h2>
 <p></p>
 
